@@ -1,9 +1,9 @@
 +++
 date = "2017-03-30T20:54:21+08:00"
-title = "good to great"
+title = "我的第一篇文章"
 draft = false
 
 +++
 
-I read **Good to Great in January 2016**. An awesome read sharing detailed analysis on how good companies became great.
+平凡才是唯一的答案。曾经的轰轰烈烈，终成过往云烟。生存下来，就会有新发现。
 
