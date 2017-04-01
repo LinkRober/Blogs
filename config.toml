@@ -16,9 +16,9 @@
 baseURL = "https://LinkRober.github.io/bookshelf/"
 languageCode = "zh-cn"
 defaultContentLanguage = "zh-cn"
-title = "Hugo tranquilpeak theme"
+title = "董二千"
 theme = "hugo-tranquilpeak-theme"
-disqusShortname = "hugo-tranquilpeak-theme"
+disqusShortname = "董二千"
 # googleAnalytics = "UA-123-45"
 paginate = 7
 canonifyurls = true
@@ -35,12 +35,12 @@ canonifyurls = true
   name = "董二千"
   bio = "愿你走出半生 归来仍是少年"
   job = "iOS Developer"
-  location = "France"
+  location = "China"
   # Your Gravatar email. Overwrite `author.picture` everywhere in the blog
-  gravatarEmail = "XMisDongerqian@gmail.com"
+  # gravatarEmail = "XMisDongerqian@gmail.com"
   # Your profile picture
   # Overwritten by your gravatar image if `author.gravatarEmail` is filled
-  picture = "https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png"
+  picture = "https://avatars1.githubusercontent.com/u/7357189?v=3&s=460.png"
   # Your Twitter username without the @. E.g : thibaudlepretre
   # twitter = "thibaudlepretre"
   # Your google plus profile id. E.g : +ThibaudLepretre or 114625208755123718311
@@ -115,7 +115,7 @@ canonifyurls = true
   # If false it will flat categories.
   hierarchicalCategories = true
 
-  description = "Hugo tranquilpeak theme demo"
+  description = "我们为什么要学习，毕竟改变需要时间"
 
   # Customization
   # Define the behavior of the sidebar
