@@ -65,12 +65,12 @@ canonifyurls = true
   name = "Tags"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-tags\"></i>"
   url = "/tags"
-[[menu.main]]
-  weight = 3
-  identifier = "archives"
-  name = "Archives"
-  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-archive\"></i>"
-  url = "/archives"
+# [[menu.main]]
+#   weight = 3
+#   identifier = "archives"
+#   name = "Archives"
+#   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-archive\"></i>"
+#   url = "/archives"
 [[menu.main]]
   weight = 4
   identifier = "about"
@@ -91,14 +91,17 @@ canonifyurls = true
 # pre = "<i class=\"sidebar-button-icon fa fa-lg fa-stack-overflow\"></i>"
 # url = "https://stackoverflow.com/users/636472/kakawait"
 
-[[menu.misc]]
-  weight = 0
-  identifier = "rss"
-  name = "RSS"
-  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-rss\"></i>"
-  url = "/index.xml"
+# [[menu.misc]]
+#   weight = 0
+#   identifier = "rss"
+#   name = "RSS"
+#   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-rss\"></i>"
+#   url = "/index.xml"
 
 [params]
+
+  Author = "董二千"
+  disqusShortname = "董二千"
   # Customize date format use to render blog post date, categories and other
   # You must use date format used by Go Time package https://golang.org/pkg/time/
   # Months (not work with short month like "jan", "feb", etc) are translated if translation exists on i18n folders
@@ -148,7 +151,7 @@ canonifyurls = true
   # Display thumbnail image at the right of title in index pages (`right`, `left` or `bottom`)
   # Set this value to `right` if you have old posts to keep the old style on them
   # and define `thumbnailImagePosition` on a post to overwrite this setting
-  thumbnailImagePosition = "bottom"
+  thumbnailImagePosition = "left"
   # Automatically select the cover image or the first photo from the gallery of a post if there is no thumbnail image as the thumbnail image
   # Set this value to `true` if you have old posts that use the cover image or the first photo as the thumbnail image
   # and set `autoThumbnailImage` to `false` on a post to overwrite this setting

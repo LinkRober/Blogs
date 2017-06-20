@@ -1,5 +1,5 @@
 +++
-date = "2017-04-01T21:48:51+08:00"
+date = "2017-04-03T03:05:31+08:00"
 title = "消息转发"
 draft = false
 tags = ["runtime","oc"]
@@ -15,7 +15,7 @@ categories = [
 演示：
 动态消息转发
 >在一个类`MessageObj`中定义两个方法，`testDynamicMethodForward`一个有实现方法，`start`一个没有实现的方法，调用没有实现的方法，在动态消息转发的时候将这个方法hook到已经实现的方法上：
-
+<!--more-->
 ```
 @interface MessageObj()
 @end
