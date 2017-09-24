@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>董二千</title>
+    <link>https://LinkRober.github.io/bookshelf/tags/runtime/index.xml</link>
+    <description>Recent content on 董二千</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <atom:link href="https://LinkRober.github.io/bookshelf/tags/runtime/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>消息转发</title>
+      <link>https://linkrober.github.io/bookshelf/2017/04/%E6%B6%88%E6%81%AF%E8%BD%AC%E5%8F%91/</link>
+      <pubDate>Mon, 03 Apr 2017 03:05:31 +0800</pubDate>
+      
+      <guid>https://linkrober.github.io/bookshelf/2017/04/%E6%B6%88%E6%81%AF%E8%BD%AC%E5%8F%91/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;描述：如果类不能执行这个方法，会执行动态&lt;strong&gt;消息转发&lt;/strong&gt;，如果该类还是不能动态的添加方法，则走&lt;strong&gt;完整的消息转发&lt;/strong&gt;。分两步，第一步&lt;strong&gt;看看有没有其他类可以执行该方法&lt;/strong&gt;，如果没有走第二步，&lt;strong&gt;将所有的细节封装到NSInvocation中，给接受者最后一次机会&lt;/strong&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;演示：
+动态消息转发
+&amp;gt;在一个类&lt;code&gt;MessageObj&lt;/code&gt;中定义两个方法，&lt;code&gt;testDynamicMethodForward&lt;/code&gt;一个有实现方法，&lt;code&gt;start&lt;/code&gt;一个没有实现的方法，调用没有实现的方法，在动态消息转发的时候将这个方法hook到已经实现的方法上：
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@interface MessageObj()
+@end
+
+
+@implementation MessageObj
+
+//-(void)start{}
+void testDynamicMethodForward(){
+    printf(&amp;quot;testDynamicMethodForward \n&amp;quot;);
+}
+
++(BOOL)resolveInstanceMethod:(SEL)sel {
+    class_addMethod([self class], sel, (IMP)testDynamicMethodForward, &amp;quot;v@@:&amp;quot;);
+    return YES;
+}
+@end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;打印如下：testDynamicMethodForward&lt;/p&gt;
+
+&lt;p&gt;完整的消息转发第一步
+&amp;gt;定义两个类，第一个类&lt;code&gt;MessageObj&lt;/code&gt;有一个未实现的方法&lt;code&gt;start&lt;/code&gt;，并且没有实现动态消息转发。第二个类&lt;code&gt;OtherClass&lt;/code&gt;，有一个和第一个类中未实现的方法同名的方法&lt;code&gt;start&lt;/code&gt;，在进行完整消息转发的第一步时，将&lt;code&gt;MessageOb&lt;/code&gt;j中未实现的方法hook到，&lt;code&gt;OtherClass&lt;/code&gt;的同名方法&lt;code&gt;start&lt;/code&gt;中&lt;/p&gt;
+
+&lt;p&gt;OtherClass类&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@interface OtherClass : NSObject
+
+@end
+
+@implementation OtherClass
+
+-(void)start{
+    NSLog(@&amp;quot;do some thing %@&amp;quot;,[self class]);
+}
+
+@end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;MessageObj类&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@implementation MessageObj
+
+//-(void)start{}
+
+-(id)forwardingTargetForSelector:(SEL)aSelector {
+    printf(&amp;quot;%p \n&amp;quot;,&amp;amp;aSelector);
+    OtherClass *obj = [OtherClass new];
+    return obj;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;调用&lt;code&gt;start&lt;/code&gt;方法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;MessageObj *obj = [MessageObj new];
+[obj start];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;打印：do some thing OtherClass&lt;/p&gt;
+
+&lt;p&gt;完整消息转发的第二步
+如果以上两步都失败了，就走到这里。定义两个类&lt;code&gt;MessageObj&lt;/code&gt;、&lt;code&gt;OtherClass&lt;/code&gt;，&lt;code&gt;MessageObj&lt;/code&gt;中存在&lt;code&gt;OtherClass&lt;/code&gt;的实例。当走到消息转发的第三步时，先进行方法重签名&lt;code&gt;-(NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector&lt;/code&gt;，再走最后的消息转发&lt;code&gt;-(void)forwardInvocation:(NSInvocation *)anInvocation&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;OtherClass类&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@interface OtherClass : NSObject
+
+@end
+@implementation OtherClass
+
+-(void)start{
+    NSLog(@&amp;quot;message transform third part %@&amp;quot;,[self class]);
+}
+
+@end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;MessageObj类&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@implementation MessageObj
+
+
+-(instancetype)init {
+    if (self = [super init]) {
+        otherClass = [OtherClass new];
+    }
+    return  self;
+}
+
+
+//-(void)start{}
+//方法重签名
+-(NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+    NSMethodSignature *signature = [super methodSignatureForSelector:aSelector];
+    if (!signature) {
+        signature = [otherClass methodSignatureForSelector:aSelector];
+    }
+    return signature;
+}
+//最后的消息转发
+-(void)forwardInvocation:(NSInvocation *)anInvocation {
+    if (!otherClass) {
+        [self doesNotRecognizeSelector:[anInvocation selector]];
+    }
+    [anInvocation invokeWithTarget:otherClass];
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;打印：message transform third part OtherClass&lt;/p&gt;
+
+&lt;p&gt;用途：
+- 在方法不能识别的时候做一些保护，防止crash
+- 调试的时候打印一些感兴趣的日志
+- 也可以hook系统的方法玩玩呀&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

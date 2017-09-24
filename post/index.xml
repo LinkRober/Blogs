@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Post-rsses on 董二千</title>
+    <link>https://LinkRober.github.io/bookshelf/post/index.xml</link>
+    <description>Recent content in Post-rsses on 董二千</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 03 Apr 2017 17:06:19 +0800</lastBuildDate>
+    <atom:link href="https://LinkRober.github.io/bookshelf/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>git order</title>
+      <link>https://linkrober.github.io/bookshelf/2017/04/git-order/</link>
+      <pubDate>Mon, 03 Apr 2017 17:06:19 +0800</pubDate>
+      
+      <guid>https://linkrober.github.io/bookshelf/2017/04/git-order/</guid>
+      <description>&lt;h1 id=&#34;常用命令&#34;&gt;常用命令&lt;/h1&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;center&#34;&gt;git orde name&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;meaning&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;tip&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;git push origin branch_name&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;push本地分支到远程仓库&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;git stash apply&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;pull 完毕后出栈&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;git stash&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;入栈，进入暂存区&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;
+|&lt;code&gt;git pull origin master --allow-unrelated-histories&lt;/code&gt;|强制pull||
+|&lt;code&gt;git rm -r --cached .DS_Store&lt;/code&gt;|如果在刚开始没加gitignore文件，后来加本地会有缓存，要删除||
+|&lt;code&gt;git checkout --track origin/serverfix&lt;/code&gt;|是下面命令的简写||
+|&lt;code&gt;git checkout -b serverfix origin/serverfix&lt;/code&gt;|从远程分支检出一份本地分支，并切换到该分支||
+|&lt;code&gt;git fetch branch_name&lt;/code&gt;|拉一个远程分支||
+|&lt;code&gt;git fetch orgin&lt;/code&gt;|同步远程仓库内容到本地||
+|&lt;code&gt;git branch branch_name&lt;/code&gt;|创建本地分支||
+|&lt;code&gt;git chekout -b branch_name&lt;/code&gt;|创建本地分支并切换到该分支||
+|&lt;code&gt;git checkout -b branch_name origin/branch_name&lt;/code&gt;|拉远程分支到本地||
+|&lt;code&gt;git push origin TagName&lt;/code&gt;|上传tag||
+|&lt;code&gt;git tag -d TadName&lt;/code&gt;|删除本地tag||
+|&lt;code&gt;git push origin --delete tag TagName&lt;/code&gt;|删除远程tag||
+|&lt;code&gt;git push origin :branch_name&lt;/code&gt;|删除远程分支|“:”前面的空格不能少，原理是push一个空分支到server，相当于删除|
+|&lt;code&gt;git branch -D branch_name&lt;/code&gt;|删除本地分支||
+|&lt;code&gt;vim ~/.gitconfig&lt;/code&gt;|查看git账户信息||
+|&lt;code&gt;git log&lt;/code&gt;|查看&lt;code&gt;log&lt;/code&gt;|翻页&lt;code&gt;space&lt;/code&gt;退出&lt;code&gt;q&lt;/code&gt;|
+| &lt;code&gt;git reset --hard&lt;/code&gt;| 回到前一次&lt;code&gt;commint&lt;/code&gt;之前的状态 | 一定要记得先&lt;code&gt;commit&lt;/code&gt; |
+| &lt;code&gt;git checkout -b develop master&lt;/code&gt;|创建develop分支||
+|&lt;code&gt;git checkout master&lt;/code&gt;|切换分支到&lt;code&gt;master&lt;/code&gt;分支||
+| &lt;code&gt;git merge --no-ff develop&lt;/code&gt;|当前在master分之上，将develop分支上的内容合并到master分支||
+|&lt;code&gt;git add -all&lt;/code&gt;|表示保存所有变化（包括新建、修改和删除）|也可以用git add .来代替|
+|&lt;code&gt;git status&lt;/code&gt;|查看变动的文件||
+|&lt;code&gt;git rebase -i origin/master&lt;/code&gt;|合并多个commit||
+|&lt;code&gt;git push --force origin myfeature&lt;/code&gt;|合并到远程仓库|如果&lt;code&gt;rebase&lt;/code&gt;了一定要用force参数。因为分支历史改变了，跟远程分支不一定兼容，有可能要强行推送|
+|&lt;code&gt;git checkout -- xxxxx&lt;/code&gt;|忽略本地未加入暂存队列的文件的修改(该文件相当于被discard)|如果已加入到了暂存列，先执行&lt;code&gt;git reset HEAD -- xxxxx&lt;/code&gt;，恢复所有&lt;code&gt;git checkout .&lt;/code&gt;|
+|&lt;code&gt;git reset HEAD -- xxxxx&lt;/code&gt;|取出已存入暂存队列的文件||
+|&lt;code&gt;git reset --hard xxxx&lt;/code&gt;|恢复到指定版本|&lt;code&gt;git log&lt;/code&gt;找到要恢复的版本|
+|进入文件目录，&lt;code&gt;git log xxx(文件名)&lt;/code&gt;,&lt;code&gt;git  reset xxxx&lt;/code&gt;(版本号) &lt;code&gt;xxxx&lt;/code&gt;(文件名),&lt;code&gt;git checkout xxxx&lt;/code&gt;(文件名)|恢复单个文件的历史版本||
+|&lt;code&gt;git diff&lt;/code&gt;|查看文件冲突|查看指定文件&lt;code&gt;git diff -w xxxx&lt;/code&gt;|
+|&lt;code&gt;git status -s&lt;/code&gt;|查看文件冲突状态||
+|&lt;code&gt;git show xxxx(版本号)&lt;/code&gt;|查看已经commit的内容 ||
+|&lt;code&gt;git revert HEAD&lt;/code&gt;| 撤销最近一次的提交 |撤销上上次的提交&lt;code&gt;git revert HEAD^&lt;/code&gt;|&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;alert warning &#34;&gt;
+  &lt;p&gt;&amp;ndash;no-ff: 不采用git默认的快进式合并，而是用正常合并&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- &lt;pre&gt;--no-ff: *不采用git默认的快进式合并，而是用正常合并*&lt;/pre&gt; --&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;临时分支&#34;&gt;临时分支&lt;/h1&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;center&#34;&gt;git orde name&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;meaning&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;tip&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;feature&lt;/code&gt;分支&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;strong&gt;功能分支&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;为了开发某种功能，从&lt;code&gt;develop&lt;/code&gt;上分出来。开发完成后，再并入&lt;code&gt;develop&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;git checkout -b feature-&lt;/code&gt;x &lt;code&gt;develop&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;创建功能分支&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;p&gt;&lt;code&gt;git checkout develop&lt;/code&gt; &lt;/p&gt; &lt;code&gt;git merge --no-ff feature-&lt;/code&gt;x&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;先切换到&lt;code&gt;develop&lt;/code&gt;分支，再把&lt;code&gt;feature&lt;/code&gt;分支合并到&lt;code&gt;develop&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;x是参数&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;git branch -d feature-&lt;/code&gt;x&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;删除feature分支&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;x是参数&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;release&lt;/code&gt;分支&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;strong&gt;预发布分支&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;预发布分支，它是指发布正式版本之前（即合并到&lt;code&gt;Master&lt;/code&gt;分支之前），我们可能需要有一个预发布的版本进行测试&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;git checkout -b release-&lt;/code&gt;1.2 &lt;code&gt;develop&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;创建预发布分支&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;1.2是参数&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;p&gt;&lt;code&gt;git checkout master&lt;/code&gt;&lt;/p&gt; &lt;code&gt;git merge --no-ff release-&lt;/code&gt;1.2&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;合并到master分支&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;1.2是参数&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;p&gt;&lt;code&gt;git checkout develop&lt;/code&gt;&lt;/p&gt; &lt;code&gt;git merge --no-ff release-&lt;/code&gt;1.2&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;再合并到develop分支&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;1.2是参数&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;git branch -d release-&lt;/code&gt;1.2&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;删除预发布分支&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;1.2是参数&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;bug&lt;/code&gt;分支&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;strong&gt;bug分支&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;软件正式发布以后，难免会出现bug。这时就需要创建一个分支，进行bug修补。&lt;strong&gt;修补bug分支是从Master分支上面分出来的。修补结束以后，再合并进Master和Develop分支。它的命名，可以采用fixbug-*的形式&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;git checkout -b fixbug-&lt;/code&gt;0.1 &lt;code&gt;master&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;创建bug分支&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;0.1是参数&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;p&gt;&lt;code&gt;git checkout master&lt;/code&gt; &lt;/p&gt; &lt;code&gt;git merge --no-ff fixbug-&lt;/code&gt;0.1&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;合并到&lt;code&gt;master&lt;/code&gt;分支&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;font color=red&gt;0.1是参数&lt;/font&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;p&gt;&lt;code&gt;git checkout develop&lt;/code&gt;&lt;/p&gt; &lt;code&gt;git merge --no-ff fixbug-&lt;/code&gt;0.1&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;合并到develop分支&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;0.1是参数&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;git branch -d fixbug-&lt;/code&gt;0.1&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;删除bug分支&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;0.1是参数&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;ssh -T git@121.40.53.85&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;打印出当前用户&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;121.40.53.85是仓库地址&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&#34;上传项目到git远端仓库&#34;&gt;上传项目到Git远端仓库&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;首先创建一个远程仓库，得到远程仓库地址&lt;/li&gt;
+&lt;li&gt;进入本地目录 &lt;code&gt;git init&lt;/code&gt;初始化git&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git add .&lt;/code&gt;添加当前目录下的所有文件和文件夹&lt;/li&gt;
+&lt;li&gt;添加提交信息&lt;code&gt;git commit -m &amp;quot;first commit&amp;quot;&lt;/code&gt;，这时候并未真正的提交到服务器&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git remote add origin https://github.com/xxxx/xxxx.git&lt;/code&gt;添加远端仓库，&lt;code&gt;origin&lt;/code&gt;是默认仓库的名称。&lt;/li&gt;
+&lt;li&gt;提交到远端仓库&lt;code&gt;master&lt;/code&gt;分支&lt;code&gt;git push -u origin master&lt;/code&gt;，&lt;code&gt;-u&lt;/code&gt;表示以后提交都是默认到&lt;code&gt;origin&lt;/code&gt;的&lt;code&gt;master&lt;/code&gt;分支上&lt;/li&gt;
+&lt;li&gt;之后提交顺序为&lt;br&gt; 1 &lt;code&gt;git add .&lt;/code&gt;&lt;br&gt; 2 &lt;code&gt;git commit -m &#39;xxxxx&#39;&lt;/code&gt; &lt;br&gt; 3 &lt;code&gt;git push&lt;/code&gt;&lt;br&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&#34;配置ssh&#34;&gt;配置SSH&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;查看是否存在公钥：&lt;code&gt;ls -al ~/.ssh&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;生成密钥：&lt;code&gt;ssh-keygen -t rsa -C &amp;quot;your_email@example.com&amp;quot;&lt;/code&gt;，一路回车键&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;eval &amp;quot;$(ssh-agent -s)&amp;quot;&lt;/code&gt; &lt;code&gt;ssh-add ~/.ssh/id_rsa&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;复制公钥：&lt;code&gt;pbcopy &amp;lt; ~/.ssh/id_rsa.pub&lt;/code&gt;
+参考 &lt;a href=&#34;https://help.github.com/articles/generating-ssh-keys/#platform-mac&#34;&gt;github&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&#34;清楚git信息&#34;&gt;清楚git信息&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;find . -name &amp;ldquo;.git&amp;rdquo; | xargs rm -Rf
+#git flow&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;参考:
+- &lt;a href=&#34;http://git-scm.com/book/zh/v1/%E8%B5%B7%E6%AD%A5&#34;&gt;官方文档&lt;/a&gt;
+- &lt;a href=&#34;http://www.techug.com/10-tips-git-next-level&#34;&gt;进阶&lt;/a&gt;
+- &lt;a href=&#34;http://www.jianshu.com/p/63f9ecc3540c?utm_campaign=hugo&amp;amp;utm_medium=reader_share&amp;amp;utm_content=note&amp;amp;utm_source=weibo&#34;&gt;简书&lt;/a&gt;
+- &lt;a href=&#34;http://www.ruanyifeng.com/blog/2015/08/git-use-process.html&#34;&gt;Git使用规范流程&lt;/a&gt;
+- &lt;a href=&#34;http://www.worldhello.net/2010/11/30/2166.html&#34;&gt;理解暂存区域&lt;/a&gt;
+- &lt;a href=&#34;http://gitbook.liuhui998.com/4_9.html&#34;&gt;git reset 和 git revert&lt;/a&gt;
+- &lt;a href=&#34;https://segmentfault.com/a/1190000003102737&#34;&gt;get reset、git checkout、git revert&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>消息转发</title>
+      <link>https://linkrober.github.io/bookshelf/2017/04/%E6%B6%88%E6%81%AF%E8%BD%AC%E5%8F%91/</link>
+      <pubDate>Mon, 03 Apr 2017 03:05:31 +0800</pubDate>
+      
+      <guid>https://linkrober.github.io/bookshelf/2017/04/%E6%B6%88%E6%81%AF%E8%BD%AC%E5%8F%91/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;描述：如果类不能执行这个方法，会执行动态&lt;strong&gt;消息转发&lt;/strong&gt;，如果该类还是不能动态的添加方法，则走&lt;strong&gt;完整的消息转发&lt;/strong&gt;。分两步，第一步&lt;strong&gt;看看有没有其他类可以执行该方法&lt;/strong&gt;，如果没有走第二步，&lt;strong&gt;将所有的细节封装到NSInvocation中，给接受者最后一次机会&lt;/strong&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;演示：
+动态消息转发
+&amp;gt;在一个类&lt;code&gt;MessageObj&lt;/code&gt;中定义两个方法，&lt;code&gt;testDynamicMethodForward&lt;/code&gt;一个有实现方法，&lt;code&gt;start&lt;/code&gt;一个没有实现的方法，调用没有实现的方法，在动态消息转发的时候将这个方法hook到已经实现的方法上：
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@interface MessageObj()
+@end
+
+
+@implementation MessageObj
+
+//-(void)start{}
+void testDynamicMethodForward(){
+    printf(&amp;quot;testDynamicMethodForward \n&amp;quot;);
+}
+
++(BOOL)resolveInstanceMethod:(SEL)sel {
+    class_addMethod([self class], sel, (IMP)testDynamicMethodForward, &amp;quot;v@@:&amp;quot;);
+    return YES;
+}
+@end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;打印如下：testDynamicMethodForward&lt;/p&gt;
+
+&lt;p&gt;完整的消息转发第一步
+&amp;gt;定义两个类，第一个类&lt;code&gt;MessageObj&lt;/code&gt;有一个未实现的方法&lt;code&gt;start&lt;/code&gt;，并且没有实现动态消息转发。第二个类&lt;code&gt;OtherClass&lt;/code&gt;，有一个和第一个类中未实现的方法同名的方法&lt;code&gt;start&lt;/code&gt;，在进行完整消息转发的第一步时，将&lt;code&gt;MessageOb&lt;/code&gt;j中未实现的方法hook到，&lt;code&gt;OtherClass&lt;/code&gt;的同名方法&lt;code&gt;start&lt;/code&gt;中&lt;/p&gt;
+
+&lt;p&gt;OtherClass类&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@interface OtherClass : NSObject
+
+@end
+
+@implementation OtherClass
+
+-(void)start{
+    NSLog(@&amp;quot;do some thing %@&amp;quot;,[self class]);
+}
+
+@end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;MessageObj类&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@implementation MessageObj
+
+//-(void)start{}
+
+-(id)forwardingTargetForSelector:(SEL)aSelector {
+    printf(&amp;quot;%p \n&amp;quot;,&amp;amp;aSelector);
+    OtherClass *obj = [OtherClass new];
+    return obj;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;调用&lt;code&gt;start&lt;/code&gt;方法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;MessageObj *obj = [MessageObj new];
+[obj start];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;打印：do some thing OtherClass&lt;/p&gt;
+
+&lt;p&gt;完整消息转发的第二步
+如果以上两步都失败了，就走到这里。定义两个类&lt;code&gt;MessageObj&lt;/code&gt;、&lt;code&gt;OtherClass&lt;/code&gt;，&lt;code&gt;MessageObj&lt;/code&gt;中存在&lt;code&gt;OtherClass&lt;/code&gt;的实例。当走到消息转发的第三步时，先进行方法重签名&lt;code&gt;-(NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector&lt;/code&gt;，再走最后的消息转发&lt;code&gt;-(void)forwardInvocation:(NSInvocation *)anInvocation&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;OtherClass类&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@interface OtherClass : NSObject
+
+@end
+@implementation OtherClass
+
+-(void)start{
+    NSLog(@&amp;quot;message transform third part %@&amp;quot;,[self class]);
+}
+
+@end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;MessageObj类&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@implementation MessageObj
+
+
+-(instancetype)init {
+    if (self = [super init]) {
+        otherClass = [OtherClass new];
+    }
+    return  self;
+}
+
+
+//-(void)start{}
+//方法重签名
+-(NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+    NSMethodSignature *signature = [super methodSignatureForSelector:aSelector];
+    if (!signature) {
+        signature = [otherClass methodSignatureForSelector:aSelector];
+    }
+    return signature;
+}
+//最后的消息转发
+-(void)forwardInvocation:(NSInvocation *)anInvocation {
+    if (!otherClass) {
+        [self doesNotRecognizeSelector:[anInvocation selector]];
+    }
+    [anInvocation invokeWithTarget:otherClass];
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;打印：message transform third part OtherClass&lt;/p&gt;
+
+&lt;p&gt;用途：
+- 在方法不能识别的时候做一些保护，防止crash
+- 调试的时候打印一些感兴趣的日志
+- 也可以hook系统的方法玩玩呀&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

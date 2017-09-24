@@ -1,0 +1,904 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+
+  
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.17">
+    <title>git order</title>
+    <meta name="author" content="董二千">
+    <meta name="keywords" content="git">
+
+    <link rel="icon" href="https://LinkRober.github.io/bookshelf/favicon.png">
+    
+
+    
+    <meta name="description" content="常用命令
+
+
+
+
+git orde name
+meaning
+tip
+
+
+
+
+
+git push origin branch_name
+push本地分支到远程仓库
+
+
+
+
+git stash apply
+pull 完毕后出栈
+
+
+
+
+git stash
+入栈，进入暂存区
+
+
+
+">
+    <meta property="og:description" content="常用命令
+
+
+
+
+git orde name
+meaning
+tip
+
+
+
+
+
+git push origin branch_name
+push本地分支到远程仓库
+
+
+
+
+git stash apply
+pull 完毕后出栈
+
+
+
+
+git stash
+入栈，进入暂存区
+
+
+
+">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="git order">
+    <meta property="og:url" content="/2017/04/git-order/">
+    <meta property="og:site_name" content="董二千">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="董二千">
+    <meta name="twitter:description" content="常用命令
+
+
+
+
+git orde name
+meaning
+tip
+
+
+
+
+
+git push origin branch_name
+push本地分支到远程仓库
+
+
+
+
+git stash apply
+pull 完毕后出栈
+
+
+
+
+git stash
+入栈，进入暂存区
+
+
+
+">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="https://avatars1.githubusercontent.com/u/7357189?v=3&s=460.png">
+    
+
+    
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" />
+    
+    
+    <link rel="stylesheet" href="https://LinkRober.github.io/bookshelf/css/style-gwlo24d2hxipxk8bi1sxik0zhlpn9t7ebcmgp9kubmmcjfzlavuyhvbqumhn.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://LinkRober.github.io/bookshelf/">董二千</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://LinkRober.github.io/bookshelf/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://avatars1.githubusercontent.com/u/7357189?v=3&amp;s=460.png" alt="作者的图片" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://LinkRober.github.io/bookshelf/#about">
+          <img class="sidebar-profile-picture" src="https://avatars1.githubusercontent.com/u/7357189?v=3&amp;s=460.png" alt="作者的图片" />
+        </a>
+        <h4 class="sidebar-profile-name">董二千</h4>
+        
+          <h5 class="sidebar-profile-bio">愿你走出半生 归来仍是少年</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://LinkRober.github.io/bookshelf/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">首页</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://LinkRober.github.io/bookshelf/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">分类</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://LinkRober.github.io/bookshelf/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">标签</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://LinkRober.github.io/bookshelf/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">关于</span>
+    </a>
+  </li>
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/LinkRober" target="_blank">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      git order
+    </h1>
+  
+  <div class="postShorten-meta post-meta">
+  
+    <time itemprop="datePublished" datetime="2017-04-03T17:06:19&#43;08:00">
+      
+  四月 3, 2017
+
+    </time>
+  
+  
+  
+  
+    <span>发布在</span>
+    
+      <a class="category-link" href="https://LinkRober.github.io/bookshelf/categories/tool">Tool</a>
+    
+  
+
+
+</div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <h1 id="常用命令">常用命令</h1>
+
+<table>
+<thead>
+<tr>
+<th align="center">git orde name</th>
+<th align="center">meaning</th>
+<th align="center">tip</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center"><code>git push origin branch_name</code></td>
+<td align="center">push本地分支到远程仓库</td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="center"><code>git stash apply</code></td>
+<td align="center">pull 完毕后出栈</td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="center"><code>git stash</code></td>
+<td align="center">入栈，进入暂存区</td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+
+<p>
+|<code>git pull origin master --allow-unrelated-histories</code>|强制pull||
+|<code>git rm -r --cached .DS_Store</code>|如果在刚开始没加gitignore文件，后来加本地会有缓存，要删除||
+|<code>git checkout --track origin/serverfix</code>|是下面命令的简写||
+|<code>git checkout -b serverfix origin/serverfix</code>|从远程分支检出一份本地分支，并切换到该分支||
+|<code>git fetch branch_name</code>|拉一个远程分支||
+|<code>git fetch orgin</code>|同步远程仓库内容到本地||
+|<code>git branch branch_name</code>|创建本地分支||
+|<code>git chekout -b branch_name</code>|创建本地分支并切换到该分支||
+|<code>git checkout -b branch_name origin/branch_name</code>|拉远程分支到本地||
+|<code>git push origin TagName</code>|上传tag||
+|<code>git tag -d TadName</code>|删除本地tag||
+|<code>git push origin --delete tag TagName</code>|删除远程tag||
+|<code>git push origin :branch_name</code>|删除远程分支|“:”前面的空格不能少，原理是push一个空分支到server，相当于删除|
+|<code>git branch -D branch_name</code>|删除本地分支||
+|<code>vim ~/.gitconfig</code>|查看git账户信息||
+|<code>git log</code>|查看<code>log</code>|翻页<code>space</code>退出<code>q</code>|
+| <code>git reset --hard</code>| 回到前一次<code>commint</code>之前的状态 | 一定要记得先<code>commit</code> |
+| <code>git checkout -b develop master</code>|创建develop分支||
+|<code>git checkout master</code>|切换分支到<code>master</code>分支||
+| <code>git merge --no-ff develop</code>|当前在master分之上，将develop分支上的内容合并到master分支||
+|<code>git add -all</code>|表示保存所有变化（包括新建、修改和删除）|也可以用git add .来代替|
+|<code>git status</code>|查看变动的文件||
+|<code>git rebase -i origin/master</code>|合并多个commit||
+|<code>git push --force origin myfeature</code>|合并到远程仓库|如果<code>rebase</code>了一定要用force参数。因为分支历史改变了，跟远程分支不一定兼容，有可能要强行推送|
+|<code>git checkout -- xxxxx</code>|忽略本地未加入暂存队列的文件的修改(该文件相当于被discard)|如果已加入到了暂存列，先执行<code>git reset HEAD -- xxxxx</code>，恢复所有<code>git checkout .</code>|
+|<code>git reset HEAD -- xxxxx</code>|取出已存入暂存队列的文件||
+|<code>git reset --hard xxxx</code>|恢复到指定版本|<code>git log</code>找到要恢复的版本|
+|进入文件目录，<code>git log xxx(文件名)</code>,<code>git  reset xxxx</code>(版本号) <code>xxxx</code>(文件名),<code>git checkout xxxx</code>(文件名)|恢复单个文件的历史版本||
+|<code>git diff</code>|查看文件冲突|查看指定文件<code>git diff -w xxxx</code>|
+|<code>git status -s</code>|查看文件冲突状态||
+|<code>git show xxxx(版本号)</code>|查看已经commit的内容 ||
+|<code>git revert HEAD</code>| 撤销最近一次的提交 |撤销上上次的提交<code>git revert HEAD^</code>|</p>
+
+<p><div class="alert warning ">
+  <p>&ndash;no-ff: 不采用git默认的快进式合并，而是用正常合并</p>
+</div>
+<!-- <pre>--no-ff: *不采用git默认的快进式合并，而是用正常合并*</pre> --></p>
+
+<h1 id="临时分支">临时分支</h1>
+
+<table>
+<thead>
+<tr>
+<th align="center">git orde name</th>
+<th align="center">meaning</th>
+<th align="center">tip</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center"><code>feature</code>分支</td>
+<td align="center"><strong>功能分支</strong></td>
+<td align="center">为了开发某种功能，从<code>develop</code>上分出来。开发完成后，再并入<code>develop</code></td>
+</tr>
+
+<tr>
+<td align="center"><code>git checkout -b feature-</code>x <code>develop</code></td>
+<td align="center">创建功能分支</td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="center"><p><code>git checkout develop</code> </p> <code>git merge --no-ff feature-</code>x</td>
+<td align="center">先切换到<code>develop</code>分支，再把<code>feature</code>分支合并到<code>develop</code></td>
+<td align="center">x是参数</td>
+</tr>
+
+<tr>
+<td align="center"><code>git branch -d feature-</code>x</td>
+<td align="center">删除feature分支</td>
+<td align="center">x是参数</td>
+</tr>
+
+<tr>
+<td align="center"><code>release</code>分支</td>
+<td align="center"><strong>预发布分支</strong></td>
+<td align="center">预发布分支，它是指发布正式版本之前（即合并到<code>Master</code>分支之前），我们可能需要有一个预发布的版本进行测试</td>
+</tr>
+
+<tr>
+<td align="center"><code>git checkout -b release-</code>1.2 <code>develop</code></td>
+<td align="center">创建预发布分支</td>
+<td align="center">1.2是参数</td>
+</tr>
+
+<tr>
+<td align="center"><p><code>git checkout master</code></p> <code>git merge --no-ff release-</code>1.2</td>
+<td align="center">合并到master分支</td>
+<td align="center">1.2是参数</td>
+</tr>
+
+<tr>
+<td align="center"><p><code>git checkout develop</code></p> <code>git merge --no-ff release-</code>1.2</td>
+<td align="center">再合并到develop分支</td>
+<td align="center">1.2是参数</td>
+</tr>
+
+<tr>
+<td align="center"><code>git branch -d release-</code>1.2</td>
+<td align="center">删除预发布分支</td>
+<td align="center">1.2是参数</td>
+</tr>
+
+<tr>
+<td align="center"><code>bug</code>分支</td>
+<td align="center"><strong>bug分支</strong></td>
+<td align="center">软件正式发布以后，难免会出现bug。这时就需要创建一个分支，进行bug修补。<strong>修补bug分支是从Master分支上面分出来的。修补结束以后，再合并进Master和Develop分支。它的命名，可以采用fixbug-*的形式</strong></td>
+</tr>
+
+<tr>
+<td align="center"><code>git checkout -b fixbug-</code>0.1 <code>master</code></td>
+<td align="center">创建bug分支</td>
+<td align="center">0.1是参数</td>
+</tr>
+
+<tr>
+<td align="center"><p><code>git checkout master</code> </p> <code>git merge --no-ff fixbug-</code>0.1</td>
+<td align="center">合并到<code>master</code>分支</td>
+<td align="center"><font color=red>0.1是参数</font></td>
+</tr>
+
+<tr>
+<td align="center"><p><code>git checkout develop</code></p> <code>git merge --no-ff fixbug-</code>0.1</td>
+<td align="center">合并到develop分支</td>
+<td align="center">0.1是参数</td>
+</tr>
+
+<tr>
+<td align="center"><code>git branch -d fixbug-</code>0.1</td>
+<td align="center">删除bug分支</td>
+<td align="center">0.1是参数</td>
+</tr>
+
+<tr>
+<td align="center"><code>ssh -T git@121.40.53.85</code></td>
+<td align="center">打印出当前用户</td>
+<td align="center">121.40.53.85是仓库地址</td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="上传项目到git远端仓库">上传项目到Git远端仓库</h1>
+
+<blockquote>
+<ul>
+<li>首先创建一个远程仓库，得到远程仓库地址</li>
+<li>进入本地目录 <code>git init</code>初始化git</li>
+<li><code>git add .</code>添加当前目录下的所有文件和文件夹</li>
+<li>添加提交信息<code>git commit -m &quot;first commit&quot;</code>，这时候并未真正的提交到服务器</li>
+<li><code>git remote add origin https://github.com/xxxx/xxxx.git</code>添加远端仓库，<code>origin</code>是默认仓库的名称。</li>
+<li>提交到远端仓库<code>master</code>分支<code>git push -u origin master</code>，<code>-u</code>表示以后提交都是默认到<code>origin</code>的<code>master</code>分支上</li>
+<li>之后提交顺序为<br> 1 <code>git add .</code><br> 2 <code>git commit -m 'xxxxx'</code> <br> 3 <code>git push</code><br></li>
+</ul>
+</blockquote>
+
+<h1 id="配置ssh">配置SSH</h1>
+
+<blockquote>
+<ul>
+<li>查看是否存在公钥：<code>ls -al ~/.ssh</code></li>
+<li>生成密钥：<code>ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</code>，一路回车键</li>
+<li><code>eval &quot;$(ssh-agent -s)&quot;</code> <code>ssh-add ~/.ssh/id_rsa</code></li>
+<li>复制公钥：<code>pbcopy &lt; ~/.ssh/id_rsa.pub</code>
+参考 <a href="https://help.github.com/articles/generating-ssh-keys/#platform-mac">github</a></li>
+</ul>
+</blockquote>
+
+<h1 id="清楚git信息">清楚git信息</h1>
+
+<blockquote>
+<p>find . -name &ldquo;.git&rdquo; | xargs rm -Rf
+#git flow</p>
+</blockquote>
+
+<hr />
+
+<p>参考:
+- <a href="http://git-scm.com/book/zh/v1/%E8%B5%B7%E6%AD%A5">官方文档</a>
+- <a href="http://www.techug.com/10-tips-git-next-level">进阶</a>
+- <a href="http://www.jianshu.com/p/63f9ecc3540c?utm_campaign=hugo&amp;utm_medium=reader_share&amp;utm_content=note&amp;utm_source=weibo">简书</a>
+- <a href="http://www.ruanyifeng.com/blog/2015/08/git-use-process.html">Git使用规范流程</a>
+- <a href="http://www.worldhello.net/2010/11/30/2166.html">理解暂存区域</a>
+- <a href="http://gitbook.liuhui998.com/4_9.html">git reset 和 git revert</a>
+- <a href="https://segmentfault.com/a/1190000003102737">get reset、git checkout、git revert</a></p>
+
+<p> </p>
+
+<p> </p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">标签</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://linkrober.github.io/bookshelf//tags/git/">git</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  <nav>
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+            <i class="fa fa-angle-left"></i>
+            <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+          </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://LinkRober.github.io/bookshelf/2017/04/%E6%B6%88%E6%81%AF%E8%BD%AC%E5%8F%91/" data-tooltip="消息转发">
+          
+            <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+            <i class="fa fa-angle-right"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share">
+    
+      <li class="post-action hide-lg hide-md hide-sm">
+        <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+          <i class="fa fa-share-alt"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https%3a%2f%2flinkrober.github.io%2fbookshelf%2f2017%2f04%2fgit-order%2f">
+          <i class="fa fa-google-plus"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flinkrober.github.io%2fbookshelf%2f2017%2f04%2fgit-order%2f">
+          <i class="fa fa-facebook-official"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https%3a%2f%2flinkrober.github.io%2fbookshelf%2f2017%2f04%2fgit-order%2f">
+          <i class="fa fa-twitter"></i>
+        </a>
+      </li>
+    
+    
+      <li class="post-action">
+        <a class="post-action-btn btn btn--default" href="#disqus_thread">
+          <i class="fa fa-comment-o"></i>
+        </a>
+      </li>
+    
+    <li class="post-action">
+      
+        <a class="post-action-btn btn btn--default" href="#">
+      
+        <i class="fa fa-list"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2017 董二千. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  <nav>
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+            <i class="fa fa-angle-left"></i>
+            <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+          </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://LinkRober.github.io/bookshelf/2017/04/%E6%B6%88%E6%81%AF%E8%BD%AC%E5%8F%91/" data-tooltip="消息转发">
+          
+            <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+            <i class="fa fa-angle-right"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share">
+    
+      <li class="post-action hide-lg hide-md hide-sm">
+        <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+          <i class="fa fa-share-alt"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https%3a%2f%2flinkrober.github.io%2fbookshelf%2f2017%2f04%2fgit-order%2f">
+          <i class="fa fa-google-plus"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flinkrober.github.io%2fbookshelf%2f2017%2f04%2fgit-order%2f">
+          <i class="fa fa-facebook-official"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https%3a%2f%2flinkrober.github.io%2fbookshelf%2f2017%2f04%2fgit-order%2f">
+          <i class="fa fa-twitter"></i>
+        </a>
+      </li>
+    
+    
+      <li class="post-action">
+        <a class="post-action-btn btn btn--default" href="#disqus_thread">
+          <i class="fa fa-comment-o"></i>
+        </a>
+      </li>
+    
+    <li class="post-action">
+      
+        <a class="post-action-btn btn btn--default" href="#">
+      
+        <i class="fa fa-list"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <ul class="share-options">
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3a%2f%2flinkrober.github.io%2fbookshelf%2f2017%2f04%2fgit-order%2f">
+        <i class="fa fa-google-plus"></i><span>分享到 Google&#43;</span>
+      </a>
+    </li>
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flinkrober.github.io%2fbookshelf%2f2017%2f04%2fgit-order%2f">
+        <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
+      </a>
+    </li>
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3a%2f%2flinkrober.github.io%2fbookshelf%2f2017%2f04%2fgit-order%2f">
+        <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
+      </a>
+    </li>
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://avatars1.githubusercontent.com/u/7357189?v=3&amp;s=460.png" alt="作者的图片" />
+    
+    <h4 id="about-card-name">董二千</h4>
+    
+      <div id="about-card-bio">愿你走出半生 归来仍是少年</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        iOS Developer
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        China
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="搜索" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center"></div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://linkrober.github.io/bookshelf/2017/04/git-order/">
+                <h3 class="media-heading">git order</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><h1 id="常用命令">常用命令</h1>
+
+<table>
+<thead>
+<tr>
+<th align="center">git orde name</th>
+<th align="center">meaning</th>
+<th align="center">tip</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center"><code>git push origin branch_name</code></td>
+<td align="center">push本地分支到远程仓库</td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="center"><code>git stash apply</code></td>
+<td align="center">pull 完毕后出栈</td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="center"><code>git stash</code></td>
+<td align="center">入栈，进入暂存区</td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://linkrober.github.io/bookshelf/2017/04/%E6%B6%88%E6%81%AF%E8%BD%AC%E5%8F%91/">
+                <h3 class="media-heading">消息转发</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><blockquote>
+<p>描述：如果类不能执行这个方法，会执行动态<strong>消息转发</strong>，如果该类还是不能动态的添加方法，则走<strong>完整的消息转发</strong>。分两步，第一步<strong>看看有没有其他类可以执行该方法</strong>，如果没有走第二步，<strong>将所有的细节封装到NSInvocation中，给接受者最后一次机会</strong>。</p>
+</blockquote>
+
+<p>演示：
+动态消息转发
+&gt;在一个类<code>MessageObj</code>中定义两个方法，<code>testDynamicMethodForward</code>一个有实现方法，<code>start</code>一个没有实现的方法，调用没有实现的方法，在动态消息转发的时候将这个方法hook到已经实现的方法上：
+</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero=""
+         data-message-one=""
+         data-message-other="">
+         2 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://LinkRober.github.io/bookshelf/images/cover.jpg');"></div>
+  
+
+
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.js"></script>
+
+
+<script src="https://LinkRober.github.io/bookshelf/js/script-wl33z0n6ocaypepiqrazthtivfrliqijej4rq8ek8gvrv1awftmgjuv8k4zc.min.js"></script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight').each(function(i, block) {
+    var code = "";
+    hljs.highlightAuto(block.innerText).value.split(/\r\n|\r|\n/).forEach(function(line) {
+      code += "<span class=\"line\">" + line + "</span><br>";
+    });
+    if (code.length > 0) {
+      block.innerHTML = code;  
+    }
+  });
+  $('pre > code').each(function(i, block) {
+    $(this).addClass('codeblock');
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/linkrober.github.io\/bookshelf\/2017\/04\/git-order\/';
+          
+            this.page.identifier = '\/2017\/04\/git-order\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = '董二千';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+
+    
+  </body>
+</html>
+
