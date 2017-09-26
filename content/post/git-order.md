@@ -26,6 +26,7 @@ keywords = [
 |`git rm -r --cached .DS_Store`|如果在刚开始没加gitignore文件，后来加本地会有缓存，要删除||
 |`git checkout --track origin/serverfix`|是下面命令的简写||
 |`git checkout -b serverfix origin/serverfix`|从远程分支检出一份本地分支，并切换到该分支||
+<!--more-->
 |`git fetch branch_name`|拉一个远程分支||
 |`git fetch orgin`|同步远程仓库内容到本地||
 |`git branch branch_name`|创建本地分支||
