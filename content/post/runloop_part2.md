@@ -9,9 +9,9 @@ categories = ["Development"]
 
  
 ### When Would You Use a Run Loop?
-你唯一要使用run loop，就是当你要在application中创建线程的时候。你Application的主线程是架构很重要的一部分。所以，iOS系统为app的提供了*runloop*代码，并自动开始。在iOS中运行Main loop作为app启动步骤的一部分。
+你唯一要使用run loop，就是当你要在application中创建线程的时候。你Application的主线程是架构很重要的一部分。所以，iOS系统为app的提供了<i>runloop</i>代码，并自动开始。在iOS中运行Main loop作为app启动步骤的一部分。
 
-对于其他的线程，你需要考虑是否必须要使用*run loop*。如果有需要，配置并自己启动它。你不需要在每个线程中都启用run loop。例如，如果你使用一个线程来执行一些很长时间的运行和已经准备好的任务，你可能要避免使用它。Run loop的目的主要是用来解决线程间的通信。例如，如果你打算做下面的事情，你需要开启一个run loop。
+对于其他的线程，你需要考虑是否必须要使用<i>run loop</i>。如果有需要，配置并自己启动它。你不需要在每个线程中都启用run loop。例如，如果你使用一个线程来执行一些很长时间的运行和已经准备好的任务，你可能要避免使用它。Run loop的目的主要是用来解决线程间的通信。例如，如果你打算做下面的事情，你需要开启一个run loop。
 
 * 使用port或者自定义input source来和其他线程通讯
 * 在线程中使用timer
