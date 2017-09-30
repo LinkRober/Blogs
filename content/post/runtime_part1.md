@@ -1,13 +1,13 @@
 +++
-categories = ["runtime"]
-date = "2017-09-9T00:00:00Z"
+categories = ["Development"]
+date = "2017-09-29T00:00:00Z"
 title = "Runtime (一)"
 keywords = ["runtime"]
 tags = ["runtime"]
 draft = false
 +++
 
-<!--more-->
+
 ### Message
 这篇文章描述了消息如何通过使用`objc_msgSend`发送，如何通过方法名称找到对应方法的reference
 
@@ -31,7 +31,7 @@ objc_msgSend(receiver,selector,arg1,arg2,...)
 - 最后将实现的返回值作为它自己的返回值。
 
 >Note:编译器生成调用消息的方法，在日常开发中永远不要在你写的代码中直接调用。
-
+<!--more-->
 在架构中消息传递的关键在于编译器编译每个class和object。每个class的结构中包含两个重要元素：
 
 - 指向父类的指针
