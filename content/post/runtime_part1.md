@@ -1,7 +1,7 @@
 +++
 title = "Runtime (一) 消息"
 date = "2017-09-29T00:00:00Z"
-categories = ["runtime"]
+categories = ["development"]
 keywords = ["runtime"]
 tags = ["runtime"]
 draft = false
