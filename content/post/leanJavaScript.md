@@ -4,7 +4,7 @@ tags = ["JavaScript"]
 categories = ["development"]
 date = "2017-10-21T00:00:00Z"
 title = "《你不知道的JavaScript上卷》学习笔记"
-draft = true
+draft = false
 +++
 
 #### 第一章 作用域是什么
@@ -27,3 +27,7 @@ draft = true
 
 使用`eval(...)`和`with`可以达到欺骗词法作用域的效果，让代码的扩展性更强，更灵活（和Object-C里面的运行时很相似）。原来编译器在静态分析的时候能够确定所有变量及函数定义的位置，但是如果用了这个黑魔法，词法分析无法知道在用了
 使用`eval(...)`会对作用域有哪些影响。引擎就无法在编译期间对作用域查找进行优化，导致代码运行变慢。（我要使用）
+text
+{{< alert info >}}
+--no-ff: 前置条件：安装Node、npm最新版本
+{{< /alert >}}

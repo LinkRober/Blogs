@@ -5,6 +5,7 @@ categories = ["development"]
 date = "2017-10-23T00:00:00Z"
 title = "React Native如何集成到现有项目中"
 draft = false
+comments = true
 +++
 
 

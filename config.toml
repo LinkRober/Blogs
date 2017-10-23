@@ -13,7 +13,7 @@
 # For developpers, if you modify this theme, put your images in `source/images` folder and
 # use grunt task `build` to synchronize assets
 
-baseURL = "https://dongerqian.disqus.com"
+baseURL = "https://LinkRober.github.io/bookshelf/"
 languageCode = "zh-cn"
 defaultContentLanguage = "zh-cn"
 title = "董二千"
