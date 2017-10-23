@@ -5,6 +5,11 @@ categories = ["development"]
 date = "2017-10-21T00:00:00Z"
 title = "《你不知道的JavaScript上卷》学习笔记"
 draft = true
+comments = true
+showPagination = true
+showTags = true
+showSocial = true
+showDate = true
 +++
 
 #### 第一章 作用域是什么

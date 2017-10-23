@@ -11,6 +11,7 @@ tags = [
 keywords = [
   "git",
 ]
+comments = true
 #thumbnailImagePosition: left
 #thumbnailImage: git_order.png
 

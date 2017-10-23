@@ -8,10 +8,15 @@ draft = false
 comments = true
 showPagination = true
 autoThumbnailImage = true
-thumbnailImage = 'rn_image.png'
+thumbnailImage = 'rn_image.jpeg'
 thumbnailImagePosition = 'bottom'
-+++
 
+showTags = true
+showSocial = true
+showDate = true
+
++++
+<!-- coverImage = '../../../rn_image.jpeg' -->
 
 虽然ReactNative能做到iOS和Android的大部分逻辑共享一套代码，节约开发成本；能做到像JSPatch那样热修复，为线上问题提供非常灵活的解决方案。但是为什么大部分公司还是持观望态度，或者只在产品的某些部分用RN进行开发呢？
 <!--more-->
@@ -28,7 +33,7 @@ thumbnailImagePosition = 'bottom'
 6. 启动RN服务，Run你的App。
 
 {{< alert info >}}
---no-ff: 前置条件：安装Node、npm最新版本
+前置条件：安装Node、npm最新版本
 {{< /alert >}}
 
 ###### 设置RN的依赖和目录结构
@@ -68,7 +73,7 @@ npm install --save r16.0.0-alpha.12 react-native
 ```
 
 {{< alert warning >}}
---no-ff: 要确保这里安装的版本和package.json里说明的版本一致
+要确保这里安装的版本和package.json里说明的版本一致
 {{< /alert >}}
 
 执行这个命令之后，将会在项目的根目录下创建一个`/node_modules`的目录，这里保存着所有你项目中所需的JavaScript依赖。
