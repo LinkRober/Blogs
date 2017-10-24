@@ -18,8 +18,19 @@ showDate = true
 +++
 <!-- coverImage = '../../../rn_image.jpeg' -->
 
-虽然ReactNative能做到iOS和Android的大部分逻辑共享一套代码，节约开发成本；能做到像JSPatch那样热修复，为线上问题提供非常灵活的解决方案。但是为什么大部分公司还是持观望态度，或者只在产品的某些部分用RN进行开发呢？
+
+本系列文章我打算从
+
+- [React Native如何集成到现有项目中](https://linkrober.github.io/bookshelf/2017/10/react-native%E5%A6%82%E4%BD%95%E9%9B%86%E6%88%90%E5%88%B0%E7%8E%B0%E6%9C%89%E9%A1%B9%E7%9B%AE%E4%B8%AD/)
+- React Native和Native间的通信
+- React Native是如何转换成Native的
+
+这三个方面来阐述
+
 <!--more-->
+
+
+虽然ReactNative能做到iOS和Android的大部分逻辑共享一套代码，节约开发成本；能做到像JSPatch那样热修复，为线上问题提供非常灵活的解决方案。但是为什么大部分公司还是持观望态度，或者只在产品的某些部分用RN进行开发呢？
 
 首先，React Native官方的某些组件仍然存在性能瓶颈，开发复杂场景的时候可能会遇到性能问题，像ListView，虽然推出了FlatList但是也存在着一些Bug。其次，RN的周边生态并不完善，很多OC或Swift上已有的Library在NR上需要重新用JS实现或者需要把这些库桥接到RN。因此大部分公司会选择交互不复杂，展示较多的场景来尝试。本章，主要介绍如果在已有的App中集成React Native。
 
