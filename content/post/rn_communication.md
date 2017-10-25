@@ -10,12 +10,23 @@ showPagination = true
 autoThumbnailImage = true
 thumbnailImage = 'rn_image.jpeg'
 thumbnailImagePosition = 'bottom'
-
+coverImage = '../../../rn_image.jpg'
 showTags = true
 showSocial = true
 showDate = true
 
 +++
+
+本系列文章作为学习RN期间的总结
+
+- [React Native如何集成到现有项目中](https://linkrober.github.io/bookshelf/2017/10/react-native%E5%A6%82%E4%BD%95%E9%9B%86%E6%88%90%E5%88%B0%E7%8E%B0%E6%9C%89%E9%A1%B9%E7%9B%AE%E4%B8%AD/)
+- React Native和Native间的通信
+- 封装Native模块在React Native中调用
+- React Native是如何转换成Native的
+
+
+
+<!--more-->
 
 #### Native -> RN
 
@@ -66,7 +77,7 @@ rootView.appProperties = @{@"content" : imageList};
  */
 - (id)moduleForName:(NSString *)moduleName;
 ```
-方法，我们可以拿到每个`RCTRootView`对应的`RCTEventEmitter`实例，因为这里的`moduleName`参数可以是类名也可以是自定义的模块名称，所以在项目中如果出现多个实例，需要在初始化通过`UIView+React.h`分类中的`reactTag`来区分。
+方法，我们可以拿到每个`RCTRootView`对应的`RCTEventEmitter`实例（它是通过lazy load的方式初始化的），因为这里的`moduleName`参数可以是类名也可以是自定义的模块名称，所以在项目中如果出现多个实例，需要在初始化通过view的`reactTag`属性来区分。该属性声明在分类`UIView+React.h`中。
 
 ```
 RCT_EXPORT_MODULE();
@@ -108,8 +119,56 @@ componentWillMount(){
     }
 ```
 
+#### RN -> Native
 
 
+###### RCTBridgeModule
+
+在Native端定义RN模块的时候，让其遵循`<RCTBridgeModule>`协议，在实现文件中暴露出你想要从RN向Native发送的消息
+
+```
+RCT_EXPORT_METHOD(exampleMethod:(NSString *)name)
+{
+    NSLog(@"%@",name);
+}
+```
+如果你想要该方法参数支持闭包，可以使用RN内置的闭包类型`RCTResponseSenderBlock`
+
+```
+RCT_EXPORT_METHOD(exampleCallbackMethod:(RCTResponseSenderBlock)callback)
+{
+    NSDictionary *param = @{@"letter":@"B"};
+    callback(@[[NSNull null], param]);
+}
+```
+
+在js端，通过`NativeModules`模块拿到Native中对应的模块
+```
+var manger = NativeModules.ExportMethodManger
+```
+如果RN中某个事件被触发了，直接通过manger向Native发送消息，消息名称正如你在Native中声明的那样
+
+```
+onPressLearnMore(){
+        manger.exampleMethod("##############Learn More############")
+    }
+```
+
+在Native项目中嵌入RN，你绝对不想要在js中再写一套网络请求吧。这时候就会遇到用RN展示UI，而数据请求放在在Native中做的情况。我们可以使用`XMLHttpRequest`这类js网络框架，但是这里想说的是`async/await`语法，它在ES6中被提供。从命名上一眼就能看出其目的，异步方法等待消息返回。
+
+```
+async updateEvents(){
+        try {
+            var events = await manger.findEvents();
+            this.setState({
+                letter:events[0].letter
+            });
+          } catch (e) {
+            console.error(e);
+          }
+    }
+```
+这样，如果Native中`findEvents`是一个异步的方法就可以在js中等待Native的回调了。
 
 
 
