@@ -8,15 +8,15 @@ draft = false
 comments = true
 showPagination = true
 autoThumbnailImage = true
-thumbnailImage = 'rn_thumbnailImage.jpeg'
-thumbnailImagePosition = 'bottom'
+
 coverImage = '../../../rn_image.jpg'
 showTags = true
 showSocial = true
 showDate = true
 
 +++
-
+<!-- thumbnailImage = 'rn_thumbnailImage.jpeg'
+thumbnailImagePosition = 'bottom' -->
 
 本系列文章作为学习RN期间的总结
 
