@@ -52,7 +52,7 @@ showDate = true
   }
 ```
 {{< alert danger >}}
-`RCTBatchedBridge.mm`、`RCTBridge.m`这两个类像一个类又像两个类很奇怪，暂时没搞清楚，都是bridge。
+`RCTBatchedBridge.mm`、`RCTBridge.m`这两个类像一个类又不像，暂时没搞清楚，都是bridge。
 {{< /alert >}}
 
 
@@ -70,4 +70,87 @@ showDate = true
 
 #### RCTBridge
 
-它是Native和js交互的关键部分，里面定义了`RCTJavaScriptWillStartLoadingNotification`、`RCTJavaScriptDidLoadNotification`、`RCTJavaScriptDidFailToLoadNotification`、`RCTDidInitializeModuleNotification`js渲染view的整个生命周期的通知，以及初始化modul的通知。
+所有的模块都保存在内存的静态常量区域，这个内存空间是在`RCTBridge`中被初始化的。因此这些模块属于全局的变量，可以在不同的bridge之间共享。可以通过`NSString *RCTBridgeModuleNameForClass(Class cls)`拿到每个模块的名称。
+
+```
+NSString *RCTBridgeModuleNameForClass(Class cls)
+{
+#if RCT_DEBUG
+  RCTAssert([cls conformsToProtocol:@protocol(RCTBridgeModule)],
+            @"Bridge module `%@` does not conform to RCTBridgeModule", cls);
+#endif
+
+  NSString *name = [cls moduleName];
+  if (name.length == 0) {
+    name = NSStringFromClass(cls);
+  }
+
+  if ([name hasPrefix:@"RK"]) {
+    name = [name substringFromIndex:2];
+  } else if ([name hasPrefix:@"RCT"]) {
+    name = [name substringFromIndex:3];
+  }
+
+  return name;
+}
+```
+从上面的代码可以看出，在native中定义的模块在被传递到js的时候会加上`RK`或者`RCT`前缀。
+
+>模块都是遵循`RCTBridgeModule`协议的，用宏`RCT_EXPORT_MODULE();`进行声明；
+
+JS队列的初始化会在`RCTBridge`被调用到的时候通过`+ (void)initialize`进行初始化，而且它是一个单列对象。通过C的`extern __attribute__((visibility("default")))`暴露出来，让该队列变量暴露动态链接库之外
+
+```
+dispatch_queue_t RCTJSThread;
+
++ (void)initialize
+{
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+
+    // Set up JS thread
+    RCTJSThread = (id)kCFNull;
+  });
+}
+```
+每一个当前视图正在使用的bridge也会放在静态常量区，每次视图切换的时候都会重新赋值。
+
+```
+static RCTBridge *RCTCurrentBridgeInstance = nil;
+
+/**
+ * The last current active bridge instance. This is set automatically whenever
+ * the bridge is accessed. It can be useful for static functions or singletons
+ * that need to access the bridge for purposes such as logging, but should not
+ * be relied upon to return any particular instance, due to race conditions.
+ */
++ (instancetype)currentBridge
+{
+  return RCTCurrentBridgeInstance;
+}
+
++ (void)setCurrentBridge:(RCTBridge *)currentBridge
+{
+  RCTCurrentBridgeInstance = currentBridge;
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
