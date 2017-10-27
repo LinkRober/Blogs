@@ -22,8 +22,7 @@ thumbnailImagePosition = 'bottom' -->
 
 - [React Native如何集成到现有项目中](https://linkrober.github.io/bookshelf/2017/10/react-native%E5%A6%82%E4%BD%95%E9%9B%86%E6%88%90%E5%88%B0%E7%8E%B0%E6%9C%89%E9%A1%B9%E7%9B%AE%E4%B8%AD/)
 - [React Native和Native间的通信](https://linkrober.github.io/bookshelf/2017/10/react-native%E5%92%8Cnative%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/)
-- 封装Native模块在React Native中调用
-- React Native是如何转换成Native的
+
 
 
 
@@ -46,6 +45,34 @@ thumbnailImagePosition = 'bottom' -->
 ```
 rootView.appProperties = @{@"content" : imageList};
 ```
+
+我们也可以使用
+
+```
+- (instancetype)initWithBridge:(RCTBridge *)bridge
+                    moduleName:(NSString *)moduleName
+             initialProperties:(NSDictionary *)initialProperties NS_DESIGNATED_INITIALIZER;
+```
+在初始化bridge时以代理的方式将bundleURL传入：
+
+```
+- (instancetype)initWithDelegate:(id<RCTBridgeDelegate>)delegate
+                   launchOptions:(NSDictionary *)launchOptions;
+
+
+ @protocol RCTBridgeDelegate <NSObject>
+
+/**
+ * The location of the JavaScript source file. When running from the packager
+ * this should be an absolute URL, e.g. `http://localhost:8081/index.ios.bundle`.
+ * When running from a locally bundled JS file, this should be a `file://` url
+ * pointing to a path inside the app resources, e.g. `file://.../main.jsbundle`.
+ */
+- (NSURL *)sourceURLForBridge:(RCTBridge *)bridge;
+
+@optional 
+```
+
 {{< alert warning >}}
 需要注意的是，赋值操作必需要放在Native的主线程。而且js中的`componentWillReceiveProps`和`componentWillUpdateProps`并不会因为重新渲染而被再次调用，你只能在`componentWillMount`方法中访问新的`props`
 {{< /alert >}}
