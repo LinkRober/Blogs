@@ -2,9 +2,9 @@
 keywords = ["React Native"]
 tags = ["React Native"]
 categories = ["development"]
-date = "2017-10-27T00:00:00Z"
+date = "2017-10-28T00:00:00Z"
 title = "RCTRootView、RCTBridge做了什么"
-draft = true
+draft = false
 comments = true
 showPagination = true
 autoThumbnailImage = true
