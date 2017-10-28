@@ -24,7 +24,10 @@ showDate = true
 
 <!--more-->
 
-本章主要讨论，RCTRootView、RCTBridge、RCTJavaScriptLoader、RCTRootContentView、RCTView彼此之间的关系，以及它们做了什么。
+本章主要讨论，RCTRootView、RCTBridge彼此之间的关系，以及它们做了什么。先放上类图
+
+
+![相关类图](../../../相关类图.png)
 
 #### RCTRootView
 它是RN在Native上展示的容器，`RCTJavaScriptWillStartLoadingNotification`、`RCTJavaScriptDidLoadNotification`、`RCTContentDidAppearNotification`这些通知注册都在里面。同时也是运行js的入口。
@@ -52,7 +55,7 @@ showDate = true
   }
 ```
 {{< alert danger >}}
-`RCTBatchedBridge.mm`、`RCTBridge.m`这两个类像一个类又不像，暂时没搞清楚，都是bridge。
+`RCTBatchedBridge.mm`是`RCTBridge.m`的子类，但是在后面可能会废弃。`RCTBridge`通过一种向下转型的方式，让其拥有了子类的能力。
 {{< /alert >}}
 
 
@@ -96,9 +99,11 @@ NSString *RCTBridgeModuleNameForClass(Class cls)
 ```
 从上面的代码可以看出，在native中定义的模块在被传递到js的时候会加上`RK`或者`RCT`前缀。
 
->模块都是遵循`RCTBridgeModule`协议的，用宏`RCT_EXPORT_MODULE();`进行声明；
+{{< alert info no-icon >}}
+模块都是遵循`RCTBridgeModule`协议的，用宏`RCT_EXPORT_MODULE();`进行声明；
+{{< /alert >}}
 
-JS队列的初始化会在`RCTBridge`被调用到的时候通过`+ (void)initialize`进行初始化，而且它是一个单列对象。通过C的`extern __attribute__((visibility("default")))`暴露出来，让该队列变量暴露动态链接库之外
+JS队列的初始化会在`RCTBridge`被调用到的时候通过`+ (void)initialize`进行初始化，而且它是一个单列对象。通过C的`extern __attribute__((visibility("default")))`暴露出来，让该队列变量暴露在动态链接库之外
 
 ```
 dispatch_queue_t RCTJSThread;
@@ -134,9 +139,66 @@ static RCTBridge *RCTCurrentBridgeInstance = nil;
   RCTCurrentBridgeInstance = currentBridge;
 }
 ```
+在`RCTBridge`的初始化方法中同时还会对`RCTBatchedBridge`进行初始化，由其发送消息开始加载js。其中分为两步：
 
+- 初始化modul和load资源
+- 设置JS的Executor和modul的配置
 
+它们在同一个队列`dispatch_queue_t bridgeQueue = dispatch_queue_create("com.facebook.react.RCTBridgeQueue", DISPATCH_QUEUE_CONCURRENT);`里的两个不同的group中异步执行：
 
+- `dispatch_group_t initModulesAndLoadSource = dispatch_group_create();`
+- `dispatch_group_t setupJSExecutorAndModuleConfig = dispatch_group_create();`
+
+因为在第一个group中的异步方法中也存在异步操作所有作者使用的` dispatch_group_enter()` 和 `dispatch_group_leave()`。
+
+第二个group直接用的`dispatch_group_async(dispatch_group_t  _Nonnull group, dispatch_queue_t  _Nonnull queue, ^(void)block)`
+当第二group的异步任务完成之后（`initModulesAndLoadSource`依赖`setupJSExecutorAndModuleConfig`），就开始执行对应的notify闭包向js注入json字符串
+
+```
+dispatch_group_notify(setupJSExecutorAndModuleConfig, bridgeQueue, ^{
+      // We're not waiting for this to complete to leave dispatch group, since
+      // injectJSONConfiguration and executeSourceCode will schedule operations
+      // on the same queue anyway.
+      [performanceLogger markStartForTag:RCTPLNativeModuleInjectConfig];
+      [weakSelf injectJSONConfiguration:config onComplete:^(NSError *error) {
+        [performanceLogger markStopForTag:RCTPLNativeModuleInjectConfig];
+        if (error) {
+          RCTLogWarn(@"Failed to inject config: %@", error);
+          dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf stopLoadingWithError:error];
+          });
+        }
+      }];
+```
+待第二个group结束，开始执行第一个group对应的notify闭包,开始加载js，加载结束之后发出`RCTJavaScriptDidLoadNotification`通知。
+
+{{< alert info no-icon >}}
+执行JS所有相关的内容都是`@protocol RCTJavaScriptExecutor`这个协议负责，定义在bridge中`@property (nonatomic, weak, readonly) id<RCTJavaScriptExecutor> javaScriptExecutor;`
+{{< /alert >}}
+
+当你在Debug模式下save或者退出当前页面的时候收到reload命令，该类会在主线程中将当前的bridge置空，如果没有成功会调用其所遵循的协议`@protocol RCTInvalidating`中的`invalidate`方法进行一系列的局部变量释放操作
+
+```
+- (void)invalidate
+{
+  RCTBridge *batchedBridge = self.batchedBridge;
+  self.batchedBridge = nil;
+
+  if (batchedBridge) {
+    RCTExecuteOnMainQueue(^{
+      [batchedBridge invalidate];
+    });
+  }
+}
+```
+
+{{< hl-text yellow >}}总结：{{< /hl-text >}}
+
+- 保存模块的集合 --`RCTModuleClasses` 
+- 定义了JS队列 -- `dispatch_queue_t RCTJSThread`
+- 定义当前正在使用的bridge，并负责切换
+- 负责`RCTBatchedBridge`的初始化，调用子类bridge，开始执行加载js的一系列操作
+- 负责在view消失或者重新加载的时候释放之前的一些对象（eg. currentbridge,遵循`RCTBridgeModule`协议的对象）。
 
 
 
