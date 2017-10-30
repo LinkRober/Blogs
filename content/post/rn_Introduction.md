@@ -44,7 +44,7 @@ thumbnailImagePosition = 'bottom' -->
 7. 启动RN服务，Run你的App。
 
 {{< alert info >}}
-前置条件：安装Node、npm最新版本
+前置条件：安装Node、npm最新版本(npm是基于Node实现的包管理工具和iOS的CocoaPod地位相当)
 {{< /alert >}}
 
 ###### 设置RN的依赖和目录结构
