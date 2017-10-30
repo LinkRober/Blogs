@@ -209,6 +209,10 @@ async updateEvents(){
 ```
 这样，如果Native中`findEvents`是一个异步的方法就可以在js中等待Native的回调了。
 
+{{< alert info >}}
+从JS到Naitve所有的消息都是由`NSInvocation`负责转发，后面打算专门开一章讨论这个类在RN中的使用。
+{{< /alert >}}
+
 
 
 
