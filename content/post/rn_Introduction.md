@@ -29,18 +29,19 @@ thumbnailImagePosition = 'bottom' -->
 <!--more-->
 
 
-虽然ReactNative能做到iOS和Android的大部分逻辑共享一套代码，节约开发成本；能做到像JSPatch那样热修复，为线上问题提供非常灵活的解决方案。但是为什么大部分公司还是持观望态度，或者只在产品的某些部分用RN进行开发呢？
+虽然ReactNative能做到iOS和Android的大部分逻辑共享一套代码，节约开发成本；拥有像JSPatch那样的热修复功能，为线上问题提供非常灵活的解决方案。但是为什么大部分公司还是持观望态度，或者只在产品的某些部分用RN进行开发呢？
 
-首先，React Native官方的某些组件仍然存在性能瓶颈，开发复杂场景的时候可能会遇到性能问题，像ListView，虽然推出了FlatList但是也存在着一些Bug。其次，RN的周边生态并不完善，很多OC或Swift上已有的Library在NR上需要重新用JS实现或者需要把这些库桥接到RN。因此大部分公司会选择交互不复杂，展示较多的场景来尝试。本章，主要介绍如果在已有的App中集成React Native。
+首先，React Native官方的某些组件仍然存在性能瓶颈，开发复杂场景的时候可能会遇到性能问题，像ListView，动不动就渲染整个视图，虽然推出了FlatList但是也存在着一些其他的Bug。其次，RN的周边生态并不完善，很多OC或Swift上已有的Library在NR上需要通过RN提供的方法重新用JS实现或者需要把这些库桥接到RN。因此大部分公司会选择交互不多，页面不太复杂的场景来尝试。本章，主要介绍如果在已有的App中集成React Native。
 
 
 #### 关键步骤
 1. 设置RN的依赖和目录结构
 2. 搞清楚你要在你的项目中使用的RN组件
 3. 使用CocoaPods添加你要使用的RN组件的依赖
-4. 在JavaScript环境下，开发你的RN模块
-5. 添加一个`RCTRootView`到你的app。它将会作为容器展示你的RN模块。
-6. 启动RN服务，Run你的App。
+4. 使用npm安装JS组件
+5. 在JavaScript环境下，开发你的RN模块
+6. 添加一个`RCTRootView`到你的app。它将会作为容器展示你的RN模块。
+7. 启动RN服务，Run你的App。
 
 {{< alert info >}}
 前置条件：安装Node、npm最新版本

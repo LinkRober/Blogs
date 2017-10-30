@@ -28,6 +28,17 @@ thumbnailImagePosition = 'bottom' -->
 
 <!--more-->
 
+刚开始接触RN，有几点大家都想弄清楚：
+
+- 如何从Native向RN传递参数，这里也分为几小点
+
+    1. 在初始化RN的时候如何从Native传递初始化的参数
+    2. 在RN视图已经渲染完成之后，如果从Native那参数
+
+- 如何从RN向Native传递参数：
+    1. 如何向Native发送消息（能否使用闭包）
+    2. 如何让RN接受naitve的异步回调
+
 #### Native -> RN
 
 ###### Properties
