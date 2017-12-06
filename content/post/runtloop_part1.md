@@ -38,8 +38,8 @@ function loop() {
 
 ><i>Runloop</i>的目的：一般我们自己写的线程在执行完相应的任务就会退出，而runloop**让你的线程在有事干的时候干活，没事干的时候休息，节省系统资源**。
 
-<i>unloop</i>的管理不全是自动的，**对于自己的线程，必须要自己添加代码，并在适当的时候启动Run loop**来响应接受的事件。
-Cocoa和Core Foundation提供了*runloop objects*来帮助你配置和管理线程的run loop。你的Application不需要自己创建这些对象(像alloc、init这些方法)。每个thread，包括Application的主线程，都已经有runloop object，有方法可以直接获取这这些对象，类似于这样的`[NSRunLoop currentRunLoop]`。
+<i>Runloop</i>的管理不全是自动的，**对于自己的线程，必须要自己添加代码，并在适当的时候启动Run loop**来响应接受的事件。
+Cocoa和Core Foundation提供了**runloop objects**来帮助你配置和管理线程的run loop。你的Application不需要自己创建这些对象(像alloc、init这些方法)。每个thread，包括Application的主线程，都已经有runloop object，有方法可以直接获取这这些对象，类似于这样的`[NSRunLoop currentRunLoop]`。
 ```
 /// 全局的Dictionary，key 是 pthread_t， value 是 CFRunLoopRef
 static CFMutableDictionaryRef loopsDic;
