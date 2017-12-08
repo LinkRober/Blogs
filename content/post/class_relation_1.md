@@ -1,7 +1,7 @@
 +++
 keywords = ["React Native"]
-tags = ["React Native"]
-categories = ["development"]
+tags = ["ReactNative","JavsScript","ObjectC"]
+categories = ["ReactNative"]
 date = "2017-10-28T00:00:00Z"
 title = "RCTRootView、RCTBridge做了什么"
 draft = false

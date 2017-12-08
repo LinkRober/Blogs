@@ -1,7 +1,7 @@
 +++
 keywords = ["runtime"]
-tags = ["runtime"]
-categories = ["development"]
+tags = ["runtime","ObjectC"]
+categories = ["iOS"]
 date = "2017-10-16T00:00:00Z"
 title = "Runtime(三) 消息转发"
 draft = false

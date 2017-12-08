@@ -1,7 +1,7 @@
 +++
 date = "2017-10-09T18:06:28+08:00"
 title = "Runtime (二)  动态方法实现"
-categories = ["development"]
+categories = ["iOS"]
 keywords = ["runtime"]
 tags = ["runtime"]
 draft = false

@@ -1,7 +1,7 @@
 +++
 keywords = ["React Native"]
-tags = ["React Native"]
-categories = ["development"]
+tags = ["ReactNative","JavsScript","ObjectC"]
+categories = ["ReactNative"]
 date = "2017-10-25T00:00:00Z"
 title = "React Native和Native间的通信"
 draft = false

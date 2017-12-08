@@ -2,9 +2,9 @@
 date = "2017-04-03T03:05:31+08:00"
 title = "消息转发"
 draft = false
-tags = ["runtime"]
+tags = ["runtime","ObjectC"]
 categories = [
-  "Development",
+  "iOS",
 ]
 # thumbnailImagePosition: left
 # thumbnailImage: //d1u9biwaxjngwg.cloudfront.net/cover-image-showcase/city-750.jpg
