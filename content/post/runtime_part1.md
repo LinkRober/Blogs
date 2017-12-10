@@ -1,9 +1,9 @@
 +++
 title = "Runtime (一) 消息"
 date = "2017-09-29T00:00:00Z"
-categories = ["development"]
+categories = ["iOS"]
 keywords = ["runtime"]
-tags = ["runtime"]
+tags = ["runtime","ObjectC"]
 draft = false
 +++
 
@@ -13,6 +13,7 @@ draft = false
 
 #### The objc_msgSend Function
 在Object-C中，发送的消息直到运行时才绑定到正真的方式实现。
+<!--more-->
 ```
 [receiver message]
 ```
@@ -24,6 +25,7 @@ objc_msgSend(receiver,selector)
 ```
 objc_msgSend(receiver,selector,arg1,arg2,...)
 ```
+
 这个方法会做一些必要的事情来进行动态绑定：
 
 - 首先找到方法的实现即selector的引用。因为在不同的类中都可以实现相同方法名的方法，所以通过方法的实现找到真正的receiver的class。
@@ -31,7 +33,7 @@ objc_msgSend(receiver,selector,arg1,arg2,...)
 - 最后将实现的返回值作为它自己的返回值。
 
 >Note:编译器生成调用消息的方法，在日常开发中永远不要在你写的代码中直接调用。
-<!--more-->
+
 在架构中消息传递的关键在于编译器编译每个class和object。每个class的结构中包含两个重要元素：
 
 - 指向父类的指针

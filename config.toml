@@ -18,7 +18,7 @@ languageCode = "zh-cn"
 defaultContentLanguage = "zh-cn"
 title = "董二千"
 theme = "hugo-tranquilpeak-theme"
-disqusShortname = "dongerqian.disqus.com"
+disqusShortname = "dongerqian"
 # googleAnalytics = "UA-123-45"
 paginate = 7
 canonifyurls = true
@@ -65,12 +65,12 @@ canonifyurls = true
   name = "Tags"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-tags\"></i>"
   url = "/tags"
-# [[menu.main]]
-#   weight = 3
-#   identifier = "archives"
-#   name = "Archives"
-#   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-archive\"></i>"
-#   url = "/archives"
+ [[menu.main]]
+   weight = 3
+   identifier = "archives"
+   name = "Archives"
+   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-archive\"></i>"
+   url = "/archives"
 [[menu.main]]
   weight = 3
   identifier = "about"

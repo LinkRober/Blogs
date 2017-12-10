@@ -2,9 +2,9 @@
 date = "2017-04-03T03:05:31+08:00"
 title = "消息转发"
 draft = false
-tags = ["runtime"]
+tags = ["runtime","ObjectC"]
 categories = [
-  "Development",
+  "iOS",
 ]
 # thumbnailImagePosition: left
 # thumbnailImage: //d1u9biwaxjngwg.cloudfront.net/cover-image-showcase/city-750.jpg
@@ -12,10 +12,12 @@ categories = [
 
 >描述：如果类不能执行这个方法，会执行动态**消息转发**，如果该类还是不能动态的添加方法，则走**完整的消息转发**。分两步，第一步**看看有没有其他类可以执行该方法**，如果没有走第二步，**将所有的细节封装到NSInvocation中，给接受者最后一次机会**。
 
+<!--more-->
+
 演示：
 动态消息转发
 >在一个类`MessageObj`中定义两个方法，`testDynamicMethodForward`一个有实现方法，`start`一个没有实现的方法，调用没有实现的方法，在动态消息转发的时候将这个方法hook到已经实现的方法上：
-<!--more-->
+
 ```
 @interface MessageObj()
 @end
