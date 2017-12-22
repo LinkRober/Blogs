@@ -116,4 +116,10 @@ void RCTRegisterModule(Class moduleClass)
 要实现这个机制需要语言有动态反射的特性，即可以通过类/方法名字符串找到对应的类/方法进行调用，没有这特性就做不了。
 
 
+#### 参考文档
+[React Native通信机制详解](http://blog.cnbang.net/tech/2698/)
+
+[ReactNative iOS源码解析](http://awhisper.github.io/2016/06/24/ReactNative%E6%B5%81%E7%A8%8B%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/)
+
+
 
