@@ -23,6 +23,7 @@ thumbnailImagePosition = 'bottom' -->
 - React Native如何集成到现有项目中
 - [React Native和Native间的通信实践](https://linkrober.github.io/bookshelf/2017/10/react-native%E5%92%8Cnative%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/)
 - [RCTRootView、RCTBridge做了什么](https://linkrober.github.io/bookshelf/2017/10/rctrootviewrctbridge%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88/)
+- [Native和JS通信概述](https://linkrober.github.io/bookshelf/2017/12/native%E5%92%8Cjs%E9%80%9A%E4%BF%A1%E6%A6%82%E8%BF%B0/)
 
 
 
