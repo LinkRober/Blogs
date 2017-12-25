@@ -2,14 +2,14 @@
 keywords = ["React Native"]
 tags = ["ReactNative","JavsScript","ObjectC"]
 categories = ["ReactNative"]
-date = "2017-12-22T00:00:00Z"
+date = "2017-12-25T00:00:00Z"
 title = "Object-C和JS通信概述"
 draft = false
 comments = true
 showPagination = true
 autoThumbnailImage = true
 
-coverImage = '../../../rn_image.jpg'
+coverImage = '../../../Merry-Christmas-Wallpapers.jpg'
 showTags = true
 showSocial = true
 showDate = true
