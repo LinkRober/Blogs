@@ -197,3 +197,6 @@ class SettingsView extends React.PureComponent{
 ```
 2. 执行`npm start`开启本地服务
 3. Xcode run.
+
+#### 相关链接
+[Integration with Existing Apps](https://facebook.github.io/react-native/docs/integration-with-existing-apps.html)
