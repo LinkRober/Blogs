@@ -6,9 +6,6 @@ date = "2017-10-25T00:00:00Z"
 title = "React Native和Native间的通信实践"
 draft = false
 comments = true
-showPagination = true
-autoThumbnailImage = true
-
 coverImage = '../../../rn_image.jpg'
 showTags = true
 showSocial = true
