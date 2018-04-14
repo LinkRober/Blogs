@@ -58,6 +58,8 @@ comments = true
 |`git status -s`|查看文件冲突状态||
 |`git show xxxx(版本号)`|查看已经commit的内容 ||
 |`git revert HEAD`| 撤销最近一次的提交 |撤销上上次的提交`git revert HEAD^`|
+|`git config --global --list`|查看global的配置列表||
+|`git config --global --remove-section <name>`|删除全局目录下的某个section，eg：user、email|git分为system、global、local|
 
 {{< alert warning >}}
 --no-ff: 不采用git默认的快进式合并，而是用正常合并
