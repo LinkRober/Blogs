@@ -106,7 +106,12 @@ comments = true
 >find . -name ".git" | xargs rm -Rf
 #git flow
 >
->
+
+# 设置代理(让github的库走代理，如果库在自己公司的服务器上不走代理)
+### 只对github.com设置代理
+>git config --global http.https://github.com.proxy socks5://127.0.0.1:1080
+### 取消代理
+>git config --global --unset http.https://github.com.proxy)
 
 _____
 参考:
