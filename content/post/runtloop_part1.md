@@ -113,7 +113,7 @@ CFRunLoopRef CFRunLoopGetCurrent() {
 下图展示了一个<i>runloop</i>的概念结构和各种不同的sources。Input sources发送一个异步的事件来执行相对应的handler（例如，图中的`hanlePort`、`mySelector`等），并通过`runUntilDate:`方法（调用thread相关的[NSRunLoop](https://developer.apple.com/documentation/foundation/runloop)对象）来退出。Timer sources发送事件到runloop的handler，但不会引起runloop的退出。
 
 
-![runloop-1.jpg](http://upload-images.jianshu.io/upload_images/1086250-2f8e40f8ce0f82c0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![runloop-1.jpg](../../../1086250-2f8e40f8ce0f82c0.jpg)
 
 除了处理输入源对应的handler，<i>Runloop</i>生成关于run loop行为的通知。注册<i>run-loop</i> 的observer接受这些通知。使用它们在thread上做一些其他的操作。你可以在你的线程中使用Core Foundation里面的类来创建<i>run-loop observer</i>。
 
@@ -256,26 +256,18 @@ Cocoa和Core Foundation通过提供端口相关的对象和方法来创建<i>Por
 
 PPT总结一下：
 
-![Screen Shot 2017-09-05 at 10.12.16 AM.png](http://upload-images.jianshu.io/upload_images/1086250-cb2c4b4a6d0973e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![什么是runloop](../../../1086250-cb2c4b4a6d0973e7.png)
 
+![基本组成](../../../1086250-7118fdeabb5ffe76.png)
 
-![Screen Shot 2017-09-05 at 10.12.37 AM.png](http://upload-images.jianshu.io/upload_images/1086250-fb6430f46efe4735.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![source的种类](../../../1086250-e7ae08b4d61ec9e6.png)
 
+![runloop生命周期](../../../1086250-fb6430f46efe4735.png)
 
-![Screen Shot 2017-09-05 at 10.12.53 AM.png](http://upload-images.jianshu.io/upload_images/1086250-7118fdeabb5ffe76.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![为什么使用runloop](../../../1086250-073579ed39612c1d.png)
 
+![具体列子](../../../1086250-cae92bc60b877b48.png)
 
-![Screen Shot 2017-09-05 at 10.13.01 AM.png](http://upload-images.jianshu.io/upload_images/1086250-e7ae08b4d61ec9e6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![检测主线程是否卡顿](../../../1086250-fae8de2bdb8232aa.png)
 
-
-![Screen Shot 2017-09-05 at 10.12.47 AM.png](http://upload-images.jianshu.io/upload_images/1086250-073579ed39612c1d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-
-![Screen Shot 2017-09-05 at 10.13.12 AM.png](http://upload-images.jianshu.io/upload_images/1086250-cae92bc60b877b48.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-
-![Screen Shot 2017-09-05 at 10.13.21 AM.png](http://upload-images.jianshu.io/upload_images/1086250-fae8de2bdb8232aa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-
-
-![Screen Shot 2017-09-05 at 10.13.27 AM.png](http://upload-images.jianshu.io/upload_images/1086250-ac972598a07a90bc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![AFNetworking](../../../1086250-ac972598a07a90bc.png)
