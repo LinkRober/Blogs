@@ -7,6 +7,15 @@ tags = ["Weak"]
 draft = false
 +++
 
+本文较长分三篇按序阅读体验更佳，第四篇为辅助阅读按需看
+
+1. [Weak的实现（一）](https://linkrober.github.io/bookshelf/2020/12/weak%E7%9A%84%E5%AE%9E%E7%8E%B0%E4%B8%80/)
+2. [Weak的实现（二）](https://linkrober.github.io/bookshelf/2020/12/weak%E7%9A%84%E5%AE%9E%E7%8E%B0%E4%BA%8C/)
+3. [Weak的实现（三）](https://linkrober.github.io/bookshelf/2020/12/weak%E7%9A%84%E5%AE%9E%E7%8E%B0%E4%B8%89/)
+4. [Weak的实现-&SideTables()[oldObj]](https://linkrober.github.io/bookshelf/2020/12/weak%E7%9A%84%E5%AE%9E%E7%8E%B0-sidetablesoldobj/)
+
+##### 正文 接 Weak的实现（二）
+
 #### 3 设置弱引用标志位
 
 <!--more-->
